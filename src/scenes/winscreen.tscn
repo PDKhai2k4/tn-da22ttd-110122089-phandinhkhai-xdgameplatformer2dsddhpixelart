@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://c61n26kivheux"]
+
+[ext_resource type="Script" uid="uid://25hu4hdenhld" path="res://script/winscreen.gd" id="1_47rfs"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_rel3a"]
+[ext_resource type="Texture2D" uid="uid://73w4ssmjkgd4" path="res://asset/Gemini_Generated_Image_dovx3qdovx3qdovx.png" id="3_unfcc"]
+[ext_resource type="AudioStream" uid="uid://basklpbyduicu" path="res://sounds/mori_sound-fx-game-winner-497166.mp3" id="4_rel3a"]
+[ext_resource type="AudioStream" uid="uid://xe45ecdl2bq6" path="res://sounds/Applause1.ogg" id="5_nhibi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unfcc"]
+atlas = ExtResource("2_rel3a")
+region = Rect2(1072.541, 55.507004, 149, 146)
+
+[sub_resource type="GDScript" id="GDScript_wg0yv"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jp6"]
+atlas = ExtResource("2_rel3a")
+region = Rect2(1253.397, 53.82, 147, 144)
+
+[sub_resource type="GDScript" id="GDScript_unfcc"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rel3a"]
+atlas = ExtResource("2_rel3a")
+region = Rect2(8.977997, 219.5, 150, 142)
+
+[sub_resource type="GDScript" id="GDScript_l4jp6"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[node name="Winscreen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47rfs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.5
+offset_top = -320.0
+offset_right = 379.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -308.0
+offset_right = 139.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.011764706, 1)
+theme_override_font_sizes/font_size = 66
+text = "Bạn thắng!"
+
+[node name="btreplay" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -72.5
+offset_right = -50.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_unfcc")
+script = SubResource("GDScript_wg0yv")
+
+[node name="btnext" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 58.00006
+offset_top = -71.99997
+offset_right = 205.00006
+offset_bottom = 72.00003
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_l4jp6")
+script = SubResource("GDScript_unfcc")
+
+[node name="bthome" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.99994
+offset_top = 108.0
+offset_right = 84.00006
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = SubResource("AtlasTexture_rel3a")
+script = SubResource("GDScript_l4jp6")
+
+[node name="RemainingTimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -135.5
+offset_right = -82.0
+offset_bottom = -100.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="BestTimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -135.5
+offset_right = 208.0
+offset_bottom = -100.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="NewRecordLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 121.0
+offset_right = 56.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+text = "Kỷ lục mới!"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -815.0
+offset_top = -497.0
+offset_right = 815.0
+offset_bottom = 497.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_unfcc")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rel3a")
+bus = &"Music"
+
+[node name="WinSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nhibi")
+bus = &"Music"
+
+[connection signal="pressed" from="btreplay" to="." method="_on_btreplay_pressed"]
+[connection signal="pressed" from="btnext" to="." method="_on_btnext_pressed"]
+[connection signal="pressed" from="bthome" to="." method="_on_bthome_pressed"]

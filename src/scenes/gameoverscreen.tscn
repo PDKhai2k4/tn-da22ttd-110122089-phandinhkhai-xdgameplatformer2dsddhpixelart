@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://mvet4jngjnhh"]
+
+[ext_resource type="Script" uid="uid://b4t46e2vqsx25" path="res://script/gameoverscreen.gd" id="1_t66db"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_dr4a0"]
+[ext_resource type="Texture2D" uid="uid://73w4ssmjkgd4" path="res://asset/Gemini_Generated_Image_dovx3qdovx3qdovx.png" id="3_dr4a0"]
+[ext_resource type="AudioStream" uid="uid://5voh2qxhgf2v" path="res://sounds/mori_sound-fx-game-over-497165.mp3" id="4_i8c0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4a0"]
+atlas = ExtResource("2_dr4a0")
+region = Rect2(1073.009, 51.863, 152, 147)
+
+[sub_resource type="GDScript" id="GDScript_t66db"]
+script/source = "extends TextureButton
+
+func _ready():
+	button_down.connect(_on_down)
+	button_up.connect(_on_up)
+
+func _on_down():
+	scale = Vector2(0.9, 0.9)
+	modulate = Color(0.8, 0.8, 0.8)
+
+func _on_up():
+	scale = Vector2.ONE
+	modulate = Color.WHITE
+
+func _on_retry_button_pressed():
+
+	GameManager.lives = GameManager.max_lives
+
+	get_tree().reload_current_scene()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8c0p"]
+atlas = ExtResource("2_dr4a0")
+region = Rect2(11.016998, 217.101, 148, 147.00002)
+
+[sub_resource type="GDScript" id="GDScript_nlv8v"]
+script/source = "extends TextureButton
+
+func _ready():
+	button_down.connect(_on_down)
+	button_up.connect(_on_up)
+
+func _on_down():
+	scale = Vector2(0.9, 0.9)
+	modulate = Color(0.8, 0.8, 0.8)
+
+func _on_up():
+	scale = Vector2.ONE
+	modulate = Color.WHITE
+func _on_menu_button_pressed():
+
+	GameManager.lives = GameManager.max_lives
+
+	get_tree().change_scene_to_file(
+		\"res://stages/home.tscn\"
+	)
+"
+
+[node name="Gameoverscreen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t66db")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.5
+offset_top = -321.0
+offset_right = 358.5
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 68.0
+offset_right = 202.0
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.13851339, 0.81387115, 0.9364656, 1)
+theme_override_font_sizes/font_size = 66
+text = "Bạn đã thua!"
+
+[node name="btretry" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -107.0
+offset_right = 71.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_dr4a0")
+script = SubResource("GDScript_t66db")
+
+[node name="bthome" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 46.5
+offset_right = 69.0
+offset_bottom = 193.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_i8c0p")
+script = SubResource("GDScript_nlv8v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = -2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -905.0
+offset_top = -500.5
+offset_right = 905.0
+offset_bottom = 466.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_dr4a0")
+
+[node name="GameoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i8c0p")
+bus = &"SFX"
+
+[connection signal="pressed" from="btretry" to="." method="_on_btretry_pressed"]
+[connection signal="pressed" from="bthome" to="." method="_on_bthome_pressed"]

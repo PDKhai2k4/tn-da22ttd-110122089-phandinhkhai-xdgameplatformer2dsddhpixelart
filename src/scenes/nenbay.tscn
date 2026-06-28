@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca0i4frlsrm28"]
+
+[ext_resource type="Texture2D" uid="uid://ejovlkoi2arm" path="res://asset/nenbay.png" id="1_r70wl"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_r70wl"]
+points = PackedVector2Array(-73.52753, -8.386215, -60.46367, 19.971924, 63.16507, 18.697403, 74.63577, -9.023468)
+
+[node name="nenbay" type="AnimatableBody2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r70wl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.120636, -2.4596405)
+shape = SubResource("ConvexPolygonShape2D_r70wl")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccdi8pfoh7n13"]
+
+[ext_resource type="Script" uid="uid://bmf4aa400sy7" path="res://script/btquit.gd" id="1_2r107"]
+[ext_resource type="Script" uid="uid://5u831uqcyprr" path="res://script/home.gd" id="1_vfxsu"]
+[ext_resource type="Script" uid="uid://txrq34hgfgb3" path="res://script/btlevels.gd" id="2_c24go"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_vfxsu"]
+[ext_resource type="Texture2D" uid="uid://dgrq0orsvjnwf" path="res://asset/Gemini_Generated_Image_is5rl5is5rl5is5r.png" id="3_o8whc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfxsu"]
+atlas = ExtResource("2_vfxsu")
+region = Rect2(13.454, 51, 144, 143)
+
+[sub_resource type="GDScript" id="GDScript_beh4d"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi0bu"]
+atlas = ExtResource("2_vfxsu")
+region = Rect2(364, 51, 150, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qdrw"]
+atlas = ExtResource("2_vfxsu")
+region = Rect2(185.424, 51, 147, 145)
+
+[node name="home" type="Node2D" groups=["player"]]
+script = ExtResource("1_vfxsu")
+
+[node name="Btplay" type="TextureButton" parent="."]
+offset_left = 1072.9509
+offset_top = 118.41736
+offset_right = 1218.3123
+offset_bottom = 261.41736
+texture_normal = SubResource("AtlasTexture_vfxsu")
+script = SubResource("GDScript_beh4d")
+
+[node name="Btquit" type="TextureButton" parent="."]
+offset_left = 1072.4939
+offset_top = 419.60376
+offset_right = 1222.4939
+offset_bottom = 568.60376
+texture_normal = SubResource("AtlasTexture_fi0bu")
+script = ExtResource("1_2r107")
+
+[node name="Btoption" type="TextureButton" parent="."]
+offset_left = 1071.1094
+offset_top = 269.5221
+offset_right = 1218.9882
+offset_bottom = 414.5221
+texture_normal = SubResource("AtlasTexture_8qdrw")
+script = ExtResource("2_c24go")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.8862305
+offset_top = -0.036376953
+offset_right = 1374.1138
+offset_bottom = 767.9636
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_o8whc")
+
+[connection signal="pressed" from="Btplay" to="Btquit" method="_on_btplay_pressed"]
+[connection signal="pressed" from="Btquit" to="Btquit" method="_on_pressed"]
+[connection signal="pressed" from="Btoption" to="Btoption" method="_on_pressed"]

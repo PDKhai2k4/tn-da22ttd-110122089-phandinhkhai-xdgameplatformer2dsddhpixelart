@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d28r5xlwen6j0"]
+
+[ext_resource type="Script" uid="uid://cvog7jbcbbshh" path="res://script/moving_platform.gd" id="1_ms375"]
+[ext_resource type="Texture2D" uid="uid://ejovlkoi2arm" path="res://asset/nenbay.png" id="2_1tdcd"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1tdcd"]
+points = PackedVector2Array(-75.09101, -3.801649, 74.19173, -3.981512, 63.93979, 24.61603, -62.141182, 24.256311)
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_ms375")
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+z_index = -5
+texture_filter = 1
+position = Vector2(-1, 0)
+texture = ExtResource("2_1tdcd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-1.2828751, -6.4732304)
+shape = SubResource("ConvexPolygonShape2D_1tdcd")
+
+[node name="StartPoint" type="Marker2D" parent="."]
+position = Vector2(-0.24196625, -2.684124)
+
+[node name="EndPoint" type="Marker2D" parent="."]
+position = Vector2(-1.1288757, -104.99214)

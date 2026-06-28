@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://715hjvg28384"]
+
+[ext_resource type="Script" uid="uid://db2h18hywikut" path="res://script/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_kukqi"]
+[ext_resource type="Texture2D" uid="uid://73w4ssmjkgd4" path="res://asset/Gemini_Generated_Image_dovx3qdovx3qdovx.png" id="3_kukqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kukqi"]
+atlas = ExtResource("2_kukqi")
+region = Rect2(721, 52.648, 145, 147)
+
+[sub_resource type="GDScript" id="GDScript_myx47"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d2l8"]
+atlas = ExtResource("2_kukqi")
+region = Rect2(1073.419, 55.765, 151, 144)
+
+[sub_resource type="GDScript" id="GDScript_kukqi"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l7mv"]
+atlas = ExtResource("2_kukqi")
+region = Rect2(8.764008, 214.5, 151, 146)
+
+[sub_resource type="GDScript" id="GDScript_5d2l8"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_n87rw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -307.0
+offset_right = 333.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.5
+offset_top = -283.0
+offset_right = 131.5
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Tạm dừng"
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -187.5
+offset_right = 78.0
+offset_bottom = -40.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_kukqi")
+script = SubResource("GDScript_myx47")
+
+[node name="RestartButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -1.0
+offset_right = 51.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_5d2l8")
+script = SubResource("GDScript_kukqi")
+
+[node name="HomeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 103.0
+offset_right = 74.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_7l7mv")
+script = SubResource("GDScript_5d2l8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = -3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -931.0
+offset_top = -500.0
+offset_right = 931.0
+offset_bottom = 473.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_kukqi")
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]

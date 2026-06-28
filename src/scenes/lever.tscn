@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyit6kgw8i5p5"]
+
+[ext_resource type="Script" uid="uid://bj24hy73wkcby" path="res://script/lever.gd" id="1_qxmkn"]
+[ext_resource type="Texture2D" uid="uid://wl0aq5qcvq8w" path="res://asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/lever_turned_left.png" id="2_8di2w"]
+[ext_resource type="Texture2D" uid="uid://dcc1awthi126l" path="res://asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/lever_turned_right.png" id="3_dkrws"]
+[ext_resource type="AudioStream" uid="uid://c0ild7ercqadh" path="res://sounds/Door1.ogg" id="4_8di2w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efr3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8di2w")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dkrws")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3flmr"]
+size = Vector2(20, 14.018082)
+
+[node name="lever" type="Area2D"]
+script = ExtResource("1_qxmkn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_efr3d")
+animation = &"on"
+frame_progress = 0.7868282
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.9909592)
+shape = SubResource("RectangleShape2D_3flmr")
+
+[node name="LeverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8di2w")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

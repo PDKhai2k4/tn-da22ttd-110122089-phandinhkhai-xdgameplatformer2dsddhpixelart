@@ -1,0 +1,152 @@
+[gd_scene load_steps=23 format=3 uid="uid://cioq75wyi6nni"]
+
+[ext_resource type="Script" uid="uid://ovb0svdvxhfj" path="res://script/levels.gd" id="1_qapmy"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_jnaa8"]
+[ext_resource type="Texture2D" uid="uid://c2vm31q5cftq" path="res://asset/Gemini_Generated_Image_w0mfh1w0mfh1w0mf.png" id="3_2du16"]
+[ext_resource type="Texture2D" uid="uid://k0qy5305puf8" path="res://asset/Gemini_Generated_Image_aqbt9taqbt9taqbt.png" id="3_jnaa8"]
+[ext_resource type="Texture2D" uid="uid://dcodpmuwm7h1m" path="res://asset/Gemini_Generated_Image_7kh0b47kh0b47kh0.png" id="4_jdqtu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2du16"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(369, 219.5, 144, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8tog"]
+atlas = ExtResource("3_2du16")
+region = Rect2(370, 219.5, 140, 144)
+
+[sub_resource type="GDScript" id="GDScript_jnaa8"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdqtu"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(540, 216.5, 150, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akan1"]
+atlas = ExtResource("3_2du16")
+region = Rect2(543, 217.5, 146, 146)
+
+[sub_resource type="GDScript" id="GDScript_snrdf"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07dq2"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(720, 220.5, 141, 139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loqk7"]
+atlas = ExtResource("4_jdqtu")
+region = Rect2(723.5, 221.5, 136, 137)
+
+[sub_resource type="GDScript" id="GDScript_2du16"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7eyd"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(899, 218.5, 140, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr6eg"]
+atlas = ExtResource("4_jdqtu")
+region = Rect2(900.5, 222.5, 137, 135)
+
+[sub_resource type="GDScript" id="GDScript_jdqtu"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mapql"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(1251.144, 219.5, 145, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgn6r"]
+atlas = ExtResource("3_2du16")
+region = Rect2(1075.589, 220.5, 144, 140)
+
+[sub_resource type="GDScript" id="GDScript_q7eyd"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snrdf"]
+atlas = ExtResource("2_jnaa8")
+region = Rect2(11.319, 217.69101, 146, 145)
+
+[sub_resource type="GDScript" id="GDScript_07dq2"]
+script/source = "extends \"res://script/texture_button_effect.gd\"
+"
+
+[node name="levels" type="Node2D"]
+script = ExtResource("1_qapmy")
+
+[node name="btlvl1" type="TextureButton" parent="."]
+offset_left = 150.0
+offset_top = 58.0
+offset_right = 294.0
+offset_bottom = 201.0
+texture_normal = SubResource("AtlasTexture_2du16")
+texture_disabled = SubResource("AtlasTexture_y8tog")
+script = SubResource("GDScript_jnaa8")
+
+[node name="btlvl2" type="TextureButton" parent="."]
+offset_left = 325.0
+offset_top = 53.0
+offset_right = 423.0
+offset_bottom = 124.0
+texture_normal = SubResource("AtlasTexture_jdqtu")
+texture_disabled = SubResource("AtlasTexture_akan1")
+script = SubResource("GDScript_snrdf")
+
+[node name="btlvl3" type="TextureButton" parent="."]
+offset_left = 490.0
+offset_top = 54.0
+offset_right = 594.0
+offset_bottom = 127.0
+texture_normal = SubResource("AtlasTexture_07dq2")
+texture_disabled = SubResource("AtlasTexture_loqk7")
+script = SubResource("GDScript_2du16")
+
+[node name="btlvl4" type="TextureButton" parent="."]
+offset_left = 669.0
+offset_top = 56.0
+offset_right = 775.0
+offset_bottom = 131.0
+texture_normal = SubResource("AtlasTexture_q7eyd")
+texture_disabled = SubResource("AtlasTexture_vr6eg")
+script = SubResource("GDScript_jdqtu")
+
+[node name="btlvl5" type="TextureButton" parent="."]
+offset_left = 835.0
+offset_top = 56.0
+offset_right = 940.0
+offset_bottom = 130.0
+texture_normal = SubResource("AtlasTexture_mapql")
+texture_disabled = SubResource("AtlasTexture_dgn6r")
+script = SubResource("GDScript_q7eyd")
+
+[node name="btquit" type="TextureButton" parent="."]
+offset_left = 1122.0
+offset_top = 480.0
+offset_right = 1268.0
+offset_bottom = 625.0
+texture_normal = SubResource("AtlasTexture_snrdf")
+script = SubResource("GDScript_07dq2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1380.0
+offset_bottom = 769.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_jnaa8")
+
+[connection signal="pressed" from="btlvl1" to="." method="_on_btlvl_1_pressed"]
+[connection signal="pressed" from="btlvl2" to="." method="_on_btlvl_2_pressed"]
+[connection signal="pressed" from="btlvl3" to="." method="_on_btlvl_3_pressed"]
+[connection signal="pressed" from="btlvl4" to="." method="_on_btlvl_4_pressed"]
+[connection signal="pressed" from="btlvl5" to="." method="_on_btlvl_5_pressed"]
+[connection signal="pressed" from="btquit" to="." method="_on_btquit_pressed"]
