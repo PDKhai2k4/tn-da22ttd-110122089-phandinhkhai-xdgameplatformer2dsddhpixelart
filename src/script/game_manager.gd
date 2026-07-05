@@ -1,7 +1,7 @@
 extends Node
 var has_key = false
 var spawn_id = ""
-
+var game_finished = false
 var max_lives = 3
 var lives = 3
 
@@ -24,10 +24,41 @@ var level_start_scene = {
 	"Level5": "res://stages/level5/world8.tscn"
 }
 func _ready():
+
 	load_game()
 
-func reset_level_data():
+	var music_bus = AudioServer.get_bus_index("Music")
+	var sfx_bus = AudioServer.get_bus_index("SFX")
 
+	AudioServer.set_bus_volume_db(
+		music_bus,
+		settings["music_volume"]
+	)
+
+	AudioServer.set_bus_volume_db(
+		sfx_bus,
+		settings["sfx_volume"]
+	)
+
+	AudioServer.set_bus_mute(
+		music_bus,
+		settings["music_mute"]
+	)
+
+	if settings["fullscreen"]:
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_FULLSCREEN
+		)
+
+	else:
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_WINDOWED
+		)
+
+func reset_level_data():
+	game_finished = false
 	coins = 0
 	collected_coins.clear()
 	lives = max_lives
@@ -45,8 +76,9 @@ func restart_current_level():
 	)
 
 func go_home():
-
+	
 	reset_level_data()
+	game_finished = false
 	has_key = false
 	get_tree().change_scene_to_file(
 		"res://stages/home.tscn"
@@ -58,7 +90,7 @@ var next_level_scene = {
 	"Level5": "res://stages/level5/world8.tscn"
 }
 func load_next_level():
-
+	
 	if current_level == "Level1":
 
 		current_level = "Level2"
@@ -160,7 +192,8 @@ func save_game():
 
 		"best_times": best_times,
 
-		"unlocked_levels": unlocked_levels
+		"unlocked_levels": unlocked_levels,
+		"settings": settings
 	}
 
 	var file = FileAccess.open(
@@ -181,13 +214,24 @@ func load_game():
 
 	var data = file.get_var()
 
-	best_times = data["best_times"]
+	if data.has("best_times"):
+		best_times.merge(data["best_times"], true)
 
 	if data.has("unlocked_levels"):
 		unlocked_levels.merge(data["unlocked_levels"], true)
+	if data.has("settings"):
+		settings = data["settings"]
+
+	
 var next_level_name = {
 	"Level1": "Level2",
 	"Level2": "Level3",
 	"Level3": "Level4",
 	"Level4": "Level5"
+}
+var settings = {
+	"music_volume": -5.0,
+	"sfx_volume": 0.0,
+	"music_mute": false,
+	"fullscreen": false
 }

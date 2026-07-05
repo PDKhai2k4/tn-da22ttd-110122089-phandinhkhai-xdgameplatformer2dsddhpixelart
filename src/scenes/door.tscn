@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://c27g1tfcb0e0d"]
 
 [ext_resource type="Script" uid="uid://41r7oykf6h3t" path="res://script/door.gd" id="1_83dcw"]
-[ext_resource type="Texture2D" uid="uid://bokl2mowtqn0x" path="res://asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/strange_door_closed_anim_strip_10.png" id="1_g2brh"]
-[ext_resource type="Texture2D" uid="uid://djo7r16qqnsxb" path="res://asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/strange_door_opening_anim_strip_14.png" id="2_dn4c7"]
+[ext_resource type="Texture2D" uid="uid://bokl2mowtqn0x" path="res://sprites/asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/strange_door_closed_anim_strip_10.png" id="1_g2brh"]
+[ext_resource type="Texture2D" uid="uid://djo7r16qqnsxb" path="res://sprites/asset/platformer_metroidvania asset pack v1.01/miscellaneous sprites/strange_door_opening_anim_strip_14.png" id="2_dn4c7"]
 [ext_resource type="AudioStream" uid="uid://53u4sxomuwh2" path="res://sounds/nematoki-creaking-wooden-door-brushing-against-stone-floor-308441.mp3" id="4_18pbm"]
 [ext_resource type="AudioStream" uid="uid://dctpnxfk68t74" path="res://sounds/floraphonic-push-stone-statue-1-188171.mp3" id="5_q5w8r"]
 

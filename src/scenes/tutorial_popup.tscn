@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://duk53ynyin0kc"]
+
+[ext_resource type="Script" uid="uid://c62kwsk1eonwg" path="res://script/tutorial_popup.gd" id="1_4glws"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://sprites/asset/Gemini_Generated_Image_t056qot056qot056.png" id="1_h4e10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4glws"]
+bg_color = Color(0.69874847, 0.590074, 0.25379318, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnl76"]
+atlas = ExtResource("1_h4e10")
+region = Rect2(544, 54.420998, 148, 146)
+
+[node name="TutorialPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4glws")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_right = 954.0
+offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4glws")
+
+[node name="close" type="TextureButton" parent="Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 468.0
+offset_right = 616.0
+offset_bottom = 146.0
+texture_normal = SubResource("AtlasTexture_rnl76")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = 513.0
+offset_bottom = 634.0
+text = "🎮 HƯỚNG DẪN CHƠI
+
+← → : Di chuyển
+
+Space/Enter : Nhảy
+
+Space/Enter lần 2 : nhảy lần 2 trên không
+
+Esc : Tạm dừng
+
+🪙 Thu thập xu vàng
+
+🗝 Tìm chìa khóa để mở cửa
+
+🚪 Mở cửa cuối cùng để hoàn thành màn chơi
+
+Bật công tắt gần đó để khởi động cơ quan cửa đá/nền di chuyển
+
+Kích hoạt checkpoint để hồi sinh tại đó
+
+❤️ Bạn có 3 mạng
+
+⏰ Hoàn thành trước khi hết giờ"
+
+[connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]

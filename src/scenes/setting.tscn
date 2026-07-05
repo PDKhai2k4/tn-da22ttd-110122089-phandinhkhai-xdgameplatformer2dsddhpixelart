@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbi184qg3g4u0"]
+
+[ext_resource type="Script" uid="uid://chpkamsdy02o8" path="res://script/setting.gd" id="1_sjyvh"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://sprites/asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_u58eq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k1fe"]
+bg_color = Color(0, 0.67158514, 0.7822338, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scrng"]
+atlas = ExtResource("2_u58eq")
+region = Rect2(545, 53.708, 143, 145)
+
+[node name="Setting" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjyvh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_right = 1065.0
+offset_bottom = 642.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7k1fe")
+
+[node name="SettingLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 27.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 34
+text = "Cài đặt"
+
+[node name="MusicLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 96.0
+offset_right = 222.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 20
+text = "Nhạc nền"
+
+[node name="MusicLabel2" type="Label" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 129.0
+offset_top = 293.0
+offset_right = 222.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 20
+text = "Bật nhạc"
+
+[node name="MusicLabel3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 286.0
+offset_right = 275.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 20
+text = "Toàn màn hình"
+
+[node name="SFX" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 184.0
+offset_right = 316.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 20
+text = "Hiệu ứng âm thanh"
+
+[node name="MusicSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 142.0
+offset_right = 576.0
+offset_bottom = 158.0
+min_value = -40.0
+max_value = 0.0
+
+[node name="SFXSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 234.0
+offset_right = 576.0
+offset_bottom = 264.0
+min_value = -40.0
+max_value = 0.0
+step = 0.5
+
+[node name="MusicToggle" type="CheckBox" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 238.0
+offset_top = 299.0
+offset_right = 262.0
+offset_bottom = 323.0
+
+[node name="FullscreenToggle" type="CheckBox" parent="Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 303.0
+offset_top = 292.0
+offset_right = 327.0
+offset_bottom = 316.0
+
+[node name="Close" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.5
+offset_top = -182.0
+offset_right = 71.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_scrng")
+
+[connection signal="value_changed" from="Panel/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="Panel/MusicToggle" to="." method="_on_music_toggle_toggled"]
+[connection signal="toggled" from="Panel/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]

@@ -7,11 +7,12 @@ func _ready():
 
 
 func show_win():
+	GameManager.game_finished = true
 	GameManager.timer_running = false
 	$WinSound.play()
 	show()
 	$RemainingTimeLabel.text = (
-	"Time Left: "
+	"Thời gian còn lại: "
 	+ GameManager.format_time(
 		GameManager.level_time
 	)
@@ -36,7 +37,7 @@ func show_win():
 	else:
 
 		$NewRecordLabel.hide()
-	$BestTimeLabel.text = "Best: "+ GameManager.format_time(
+	$BestTimeLabel.text = "Kỷ lục cao nhất: "+ GameManager.format_time(
 		GameManager.best_times[
 			GameManager.current_level
 		]

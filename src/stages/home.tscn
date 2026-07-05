@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccdi8pfoh7n13"]
+[gd_scene load_steps=15 format=3 uid="uid://ccdi8pfoh7n13"]
 
 [ext_resource type="Script" uid="uid://bmf4aa400sy7" path="res://script/btquit.gd" id="1_2r107"]
 [ext_resource type="Script" uid="uid://5u831uqcyprr" path="res://script/home.gd" id="1_vfxsu"]
 [ext_resource type="Script" uid="uid://txrq34hgfgb3" path="res://script/btlevels.gd" id="2_c24go"]
-[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_vfxsu"]
-[ext_resource type="Texture2D" uid="uid://dgrq0orsvjnwf" path="res://asset/Gemini_Generated_Image_is5rl5is5rl5is5r.png" id="3_o8whc"]
+[ext_resource type="Texture2D" uid="uid://dyu2nr21cuhtf" path="res://sprites/asset/Gemini_Generated_Image_t056qot056qot056.png" id="2_vfxsu"]
+[ext_resource type="Texture2D" uid="uid://dgrq0orsvjnwf" path="res://sprites/asset/Gemini_Generated_Image_is5rl5is5rl5is5r.png" id="3_o8whc"]
+[ext_resource type="Texture2D" uid="uid://qv1jb7v6183" path="res://sprites/asset/Gemini_Generated_Image_qg69tjqg69tjqg69.png" id="6_fi0bu"]
+[ext_resource type="PackedScene" uid="uid://cbi184qg3g4u0" path="res://scenes/setting.tscn" id="7_8qdrw"]
+[ext_resource type="PackedScene" uid="uid://duk53ynyin0kc" path="res://scenes/tutorial_popup.tscn" id="8_mxsm0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfxsu"]
 atlas = ExtResource("2_vfxsu")
@@ -21,6 +24,14 @@ region = Rect2(364, 51, 150, 149)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qdrw"]
 atlas = ExtResource("2_vfxsu")
 region = Rect2(185.424, 51, 147, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxsm0"]
+atlas = ExtResource("6_fi0bu")
+region = Rect2(1071.043, 214.5, 160, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxy13"]
+atlas = ExtResource("6_fi0bu")
+region = Rect2(1247.569, 216.5, 152, 149)
 
 [node name="home" type="Node2D" groups=["player"]]
 script = ExtResource("1_vfxsu")
@@ -63,6 +74,41 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_o8whc")
 
+[node name="Btsetting" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_mxsm0")
+
+[node name="BThd" type="TextureButton" parent="."]
+offset_left = 162.98364
+offset_right = 314.98364
+offset_bottom = 149.0
+texture_normal = SubResource("AtlasTexture_mxy13")
+
+[node name="TutorialPopup" parent="." instance=ExtResource("8_mxsm0")]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="Setting" parent="." instance=ExtResource("7_8qdrw")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0303345
+offset_top = -0.5128479
+offset_right = 43.030334
+offset_bottom = 39.487152
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="Btplay" to="Btquit" method="_on_btplay_pressed"]
 [connection signal="pressed" from="Btquit" to="Btquit" method="_on_pressed"]
 [connection signal="pressed" from="Btoption" to="Btoption" method="_on_pressed"]
+[connection signal="pressed" from="Btsetting" to="." method="_on_btsetting_pressed"]
+[connection signal="pressed" from="BThd" to="." method="_on_b_thd_pressed"]

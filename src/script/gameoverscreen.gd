@@ -4,6 +4,7 @@ func _ready():
 	hide()
 
 func show_game_over():
+	GameManager.game_finished = true
 	GameManager.timer_running = false
 	$GameoverSound.play()
 	show()

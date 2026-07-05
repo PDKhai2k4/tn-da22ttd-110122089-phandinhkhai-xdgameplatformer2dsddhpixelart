@@ -7,7 +7,8 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event):
-
+	if GameManager.game_finished:
+		return
 	if event.is_action_pressed("ui_cancel"):
 
 		if get_tree().paused:
@@ -52,3 +53,4 @@ func resume_game():
 	hide()
 
 	get_tree().paused = false
+	GameManager.timer_running = true

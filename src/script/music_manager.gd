@@ -7,7 +7,7 @@ var player : AudioStreamPlayer
 )
 
 @onready var level_music = preload(
-	"res://sounds/Castle2.ogg"
+	"res://sounds/rpg-battle.mp3"
 )
 @onready var click_sound = preload(
 	"res://sounds/floraphonic-90s-game-ui-3-185096.mp3"

@@ -54,7 +54,6 @@ func open_door():
 		return
 
 	opened = true
-	$OpenSound.play()
 	$OpenSound2.play()
 	sprite.play("open")
 	

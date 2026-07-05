@@ -2,8 +2,8 @@ extends CharacterBody2D
 @onready var collision = $CollisionShape2D
 @onready var jump_sound = $JumpSound
 const SPEED = 120.0
-const JUMP_VELOCITY = -450.0
-const DOUBLE_JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -420.0
+const DOUBLE_JUMP_VELOCITY = -360.0
 # Double Jump
 const MAX_JUMPS = 2
 
