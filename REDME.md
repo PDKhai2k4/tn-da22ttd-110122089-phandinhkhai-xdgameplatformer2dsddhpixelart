@@ -5,16 +5,16 @@
 ---
 ## 📑 Mục lục
 
-- [Mục tiêu](#-mục-tiêu)
-- [Kiến trúc dự án](#-kiến-trúc-dự-án)
-- [Công nghệ sử dụng](#-công-nghệ-sử-dụng)
-- [Phần mềm cần thiết](#-phần-mềm-cần-thiết-để-triển-khai)
-- [Cách triển khai dự án](#-cách-triển-khai-dự-án)
-- [Chạy chương trình](#-chạy-chương-trình)
-- [Điều khiển](#-điều-khiển)
-- [Tính năng nổi bật](#-tính-năng-nổi-bật)
-- [Yêu cầu hệ thống](#-yêu-cầu-hệ-thống)
-- [Tác giả](#-tác-giả)
+- [Mục tiêu](#mục-tiêu)
+- [Kiến trúc dự án](#kiến-trúc-dự-án)
+- [Công nghệ sử dụng](#công-nghệ-sử-dụng)
+- [Phần mềm cần thiết](#phần-mềm-cần-thiết-để-triển-khai)
+- [Cách triển khai dự án](#cách-triển-khai-dự-án)
+- [Chạy chương trình](#chạy-chương-trình)
+- [Điều khiển](#điều-khiển)
+- [Tính năng nổi bật](#tính-năng-nổi-bật)
+- [Yêu cầu hệ thống](#yêu-cầu-hệ-thống)
+- [Tác giả](#tác-giả)
 
 ---
 
